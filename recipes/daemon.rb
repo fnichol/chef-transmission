@@ -42,6 +42,7 @@ ruby_block "update_settings" do
 
     # only process settings if any are defined
     unless settings.empty?
+      contents = File.open(json_file, "rb") { |f| f.read }
       json = JSON.parse(contents)
 
       # update settings that are "new"
